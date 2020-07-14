@@ -82,7 +82,7 @@ public class SOQLResult {
                         if (value instanceof Map) {
                             filteredMap.putAll(getRelatedRecords(entry.getKey(), (Map) value));
                         } else {
-                            filteredMap.put(entry.getKey(), value != null ?  String.valueOf(value) : "");
+                            filteredMap.put(entry.getKey(), value != null ?  String.valueOf(value) : null);
                         }
                     }
                 }
@@ -105,7 +105,7 @@ public class SOQLResult {
                 if (childValue instanceof Map) {
                     relatedRecords.putAll(getRelatedRecords(key + "." + entry.getKey(), (Map) childValue));
                 } else {
-                    relatedRecords.put(key + "." + entry.getKey(), childValue != null ? String.valueOf(childValue): "");
+                    relatedRecords.put(key + "." + entry.getKey(), childValue != null ? String.valueOf(childValue): null);
                 }
             }
         }
