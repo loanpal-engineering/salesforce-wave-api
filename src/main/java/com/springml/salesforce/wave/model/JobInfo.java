@@ -2,32 +2,54 @@ package com.springml.salesforce.wave.model;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties
 public class JobInfo implements Serializable {
     private static final long serialVersionUID = 2403943099992427787L;
 
+    @JsonIgnore
     private String contentType;
+    @JsonIgnore
     private String object;
+    @JsonIgnore
     private String operation;
+    @JsonIgnore
     private String apiVersion;
+    // dont ignore
     private String concurrencyMode;
+    @JsonIgnore
     private String createdById;
+    @JsonIgnore
     private String createdDate;
+    @JsonIgnore
     private String externalIdFieldName;
+    @JsonIgnore
     private String fastPathEnabled;
+    @JsonIgnore
     private String numberBatchesCompleted;
+    @JsonIgnore
     private String numberBatchesFailed;
+    @JsonIgnore
     private String numberBatchesInProgress;
+    @JsonIgnore
     private String numberBatchesQueued;
+    @JsonIgnore
     private String numberBatchesTotal;
+    @JsonIgnore
     private String numberRecordsFailed;
+    @JsonIgnore
     private String numberRecordsProcessed;
+    @JsonIgnore
     private String numberRetries;
+    @JsonIgnore
     private String state;
+    @JsonIgnore
     private String systemModstamp;
+    @JsonIgnore
     private String totalProcessingTime;
+    @JsonIgnore
     private String id;
 
     public JobInfo(String contentType, String object, String operation) {
