@@ -76,18 +76,19 @@
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
-            <version>2.10.0</version>
+            <version>2.14.0</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.woodstox</groupId>
             <artifactId>woodstox-core-asl</artifactId>
-            <version>4.4.0</version>
+            <version>4.4.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.4</version>
         </dependency>
+
 
         <dependency>
             <groupId>junit</groupId>
@@ -127,6 +128,27 @@
         </pluginManagement>
 
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.4.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <relocations>
+                                <relocation>
+                                    <pattern>com.fasterxml.jackson.dataformat</pattern>
+                                    <shadedPattern>com.shaded.fasterxml.jackson.dataformat</shadedPattern>
+                                </relocation>
+                            </relocations>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -168,20 +190,20 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-gpg-plugin</artifactId>-->
+<!--                <version>1.5</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>sign-artifacts</id>-->
+<!--                        <phase>verify</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>sign</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 
