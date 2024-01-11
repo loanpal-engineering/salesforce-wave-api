@@ -1,19 +1,19 @@
 package com.springml.salesforce.wave.util;
 
-import static com.springml.salesforce.wave.util.WaveAPIConstants.*;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import org.apache.log4j.Logger;
-
 import com.sforce.soap.partner.Connector;
 import com.sforce.soap.partner.PartnerConnection;
 import com.sforce.ws.ConnectionException;
 import com.sforce.ws.ConnectorConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import static com.springml.salesforce.wave.util.WaveAPIConstants.PATH_SOAP_ENDPOINT;
 
 public class SFConfig {
-    private static final Logger LOG = Logger.getLogger(SFConfig.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SFConfig.class);
 
     private String username;
     private String password;

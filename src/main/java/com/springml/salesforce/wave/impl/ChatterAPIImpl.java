@@ -1,21 +1,21 @@
 package com.springml.salesforce.wave.impl;
 
-import static com.springml.salesforce.wave.util.WaveAPIConstants.*;
-
-import java.net.URI;
-import java.util.Arrays;
-
-import org.apache.log4j.Logger;
-
 import com.springml.salesforce.wave.api.ChatterAPI;
 import com.springml.salesforce.wave.model.PostMessageRequest;
 import com.springml.salesforce.wave.model.chatter.MessageBody;
 import com.springml.salesforce.wave.model.chatter.MessageElement;
 import com.springml.salesforce.wave.model.chatter.PostMessageResponse;
 import com.springml.salesforce.wave.util.SFConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.net.URI;
+import java.util.Arrays;
+
+import static com.springml.salesforce.wave.util.WaveAPIConstants.*;
 
 public class ChatterAPIImpl extends AbstractAPIImpl implements ChatterAPI {
-    private static final Logger LOG = Logger.getLogger(ChatterAPIImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ChatterAPIImpl.class);
 
     public ChatterAPIImpl(SFConfig sfConfig) throws Exception {
         super(sfConfig);

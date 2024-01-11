@@ -1,12 +1,5 @@
 package com.springml.salesforce.wave.util;
 
-import static com.springml.salesforce.wave.util.WaveAPIConstants.*;
-
-import java.io.InputStream;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.commons.io.IOUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -19,13 +12,21 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.InputStream;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.springml.salesforce.wave.util.WaveAPIConstants.*;
 
 /**
  * Helper class for HTTP requests
  */
 public class HTTPHelper {
-    private static final Logger LOG = Logger.getLogger(HTTPHelper.class);
+    private static final Logger LOG = LoggerFactory.getLogger(HTTPHelper.class);
 
     public String post(URI uri, String sessionId, String request) throws Exception {
         return post(uri, sessionId, request, CONTENT_TYPE_APPLICATION_JSON, false);
