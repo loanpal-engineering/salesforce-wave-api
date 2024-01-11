@@ -1,25 +1,21 @@
 package com.springml.salesforce.wave.impl;
 
-import static com.springml.salesforce.wave.util.WaveAPIConstants.*;
+import com.springml.salesforce.wave.api.ForceAPI;
+import com.springml.salesforce.wave.model.*;
+import com.springml.salesforce.wave.util.SFConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URI;
 
-import org.apache.log4j.Logger;
-
-import com.springml.salesforce.wave.api.ForceAPI;
-import com.springml.salesforce.wave.model.AddTaskRequest;
-import com.springml.salesforce.wave.model.AddTaskResponse;
-import com.springml.salesforce.wave.model.DescribeSObjectResult;
-import com.springml.salesforce.wave.model.ForceResponse;
-import com.springml.salesforce.wave.model.SOQLResult;
-import com.springml.salesforce.wave.util.SFConfig;
+import static com.springml.salesforce.wave.util.WaveAPIConstants.*;
 
 /**
  * Default implementation for Salesforce REST API calls
  */
 public class ForceAPIImpl extends AbstractAPIImpl implements ForceAPI {
-    private static final Logger LOG = Logger.getLogger(ForceAPIImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ForceAPIImpl.class);
 
     public ForceAPIImpl(SFConfig sfConfig) throws Exception {
         super(sfConfig);

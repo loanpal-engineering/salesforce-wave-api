@@ -1,14 +1,5 @@
 package com.springml.salesforce.wave.impl;
 
-import static com.springml.salesforce.wave.util.WaveAPIConstants.*;
-
-import java.net.URI;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.log4j.Logger;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sforce.soap.partner.PartnerConnection;
 import com.springml.salesforce.wave.api.WaveAPI;
@@ -16,13 +7,22 @@ import com.springml.salesforce.wave.model.QueryResult;
 import com.springml.salesforce.wave.model.dataset.Dataset;
 import com.springml.salesforce.wave.model.dataset.DatasetsResponse;
 import com.springml.salesforce.wave.util.SFConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.net.URI;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static com.springml.salesforce.wave.util.WaveAPIConstants.*;
 
 /**
  * Default Implementation for {@link WaveAPI}
  */
 @JsonIgnoreProperties
 public class WaveAPIImpl extends AbstractAPIImpl implements WaveAPI {
-    private static final Logger LOG = Logger.getLogger(WaveAPIImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(WaveAPIImpl.class);
 
     public WaveAPIImpl(SFConfig sfConfig) throws Exception {
         super(sfConfig);

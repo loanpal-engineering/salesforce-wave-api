@@ -11,7 +11,8 @@ import java.util.Arrays;
 import com.springml.salesforce.wave.model.BatchResultList;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.sforce.soap.partner.PartnerConnection;
 import com.springml.salesforce.wave.api.BulkAPI;
@@ -22,7 +23,7 @@ import com.springml.salesforce.wave.util.LRUCache;
 import com.springml.salesforce.wave.util.SFConfig;
 
 public class BulkAPIImpl extends AbstractAPIImpl implements BulkAPI {
-    private static final Logger LOG = Logger.getLogger(BulkAPIImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(BulkAPIImpl.class);
     private Map<String, String> jobContentTypeMap = new LRUCache<String, String>(100);
 
     public BulkAPIImpl(SFConfig sfConfig) throws Exception {
